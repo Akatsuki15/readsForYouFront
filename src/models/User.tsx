@@ -4,5 +4,5 @@ export default interface User{
     surname?: string
     email: string
     password: string
-    accepNotifications: boolean
+    acceptNotifications: boolean
 }
