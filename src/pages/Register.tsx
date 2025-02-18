@@ -66,7 +66,7 @@ function Register() {
     
       if (loading) return <p>Loading...</p>;
   return (
-    <form className="max-w-sm mx-auto min-w-sm" onSubmit={handleSubmit}>
+    <form className="max-w-sm mx-auto min-w-sm mt-10" onSubmit={handleSubmit}>
       <InputForm text="Nombre" name="name" value={form.name || ''} handleChange={handleChange} error={errors.name} /> 
       <InputForm text="Apellidos" name="surname" value={form.surname || ''} handleChange={handleChange} error={errors.surname} /> 
       <InputForm text="Email" name="email" value={form.email || ''} handleChange={handleChange} error={errors.email} /> 
@@ -86,7 +86,7 @@ function Register() {
        
         <label
           htmlFor="remember"
-          className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          className="ms-2 text-sm font-medium text-black"
         >
           Aceptas recibir notificaciones?
         </label>
@@ -96,7 +96,7 @@ function Register() {
       {errors && errors.message && <p className="text-center mt-4 text-red-500">{errors.message}</p>}
       <button
         type="submit"
-        className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+        className="text-white bg-cyan-500 hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center"
       >
         Submit
       </button>
