@@ -1,7 +1,9 @@
 import { ChangeEvent, FormEvent, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
+  const navigate = useNavigate();
 
   const [form, setForm] = useState(
     {
@@ -16,13 +18,9 @@ function Login() {
     e.preventDefault()
     // mensaje por post al api del backend
     try{
-      //await AuthService.loginUser(form.email, form.password) // backend
-      await login(form.email, form.password) // llamada al contexto
-      console.log('login successfull')
+      await login(form.email, form.password) 
       setMessage('login successfull')
-      console.log(form.email)
-
-      // Redirigir a otra pagina (ofertas)
+      navigate("/profile");
     }catch(error){
       const msg = error instanceof Error ? error.message : 'Error desconocido'
       setMessage(msg)

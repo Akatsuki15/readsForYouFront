@@ -23,18 +23,30 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     useEffect(()=>{
         async function callBack(){
             // obtengo los datos del backend y los guardo en el ctx
-            const response = await fetch(API_URL_BASE+'/auth/user', {credentials: 'include'})
-            const data = await response.json()
-            setUser(data)
+            try{
+                const response = await fetch(API_URL_BASE+'/auth/user', {credentials: 'include'})
+                if (!response.ok) throw new Error("No autenticado");
+                const data = await response.json()
+                setUser(data)
+            }catch(error){
+                console.error('Error al cargar el usuario', error)
+                setUser(null)
+            }
         }
         callBack()
     },[])
 
     const login = async (email: string, password:string) => {
         try{
-            const tokenJwt = await AuthService.loginUser(email, password)
-            setUser(tokenJwt)
+            const a = await AuthService.loginUser(email, password)
+            const response = await fetch(API_URL_BASE+'/auth/user', {credentials: 'include'})
+            if (!response.ok) throw new Error("No autenticado");
+            const data = await response.json()
+            console.log('Usuario logueado:', data)
+            console.log('Usuario logueado token:', a)
+            setUser(data)
         }catch(error){
+            console.error("Error en el login:", error);
             throw new Error("Error en el login")
         }
     }
@@ -54,6 +66,9 @@ export function AuthProvider({children}:{children: React.ReactNode}){
 
 export function useAuth() {
     const context = useContext(AuthContext)
-    if(!context) throw new Error('No puedes acceder al contexto fuera del AuthProvider')
+    if(!context) {
+        console.warn("useAuth se está usando fuera del AuthProvider");
+        return { user: null, isAuthenticated: false, login: () => {}, logout: () => {} };
+    }
     return context
 }

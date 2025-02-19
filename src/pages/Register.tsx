@@ -27,7 +27,7 @@ function Register() {
           await AuthService.registerUser(form);
     
           toast.success("Usuario registrado con éxito!");
-          navigate("/offers");
+          navigate("/profile");
         } catch (error) {
           toast.error("Error al registrar el usuario.");
     
