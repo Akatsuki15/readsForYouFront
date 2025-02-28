@@ -70,7 +70,7 @@ function Register() {
       <InputForm text="Nombre" name="name" value={form.name || ''} handleChange={handleChange} error={errors.name} /> 
       <InputForm text="Apellidos" name="surname" value={form.surname || ''} handleChange={handleChange} error={errors.surname} /> 
       <InputForm text="Email" name="email" value={form.email || ''} handleChange={handleChange} error={errors.email} /> 
-      <InputForm text="Password" name="password" value={form.password || ''} handleChange={handleChange} error={errors.password} /> 
+      <InputForm text="Password" name="password" type="password" value={form.password || ''} handleChange={handleChange} error={errors.password} /> 
 
       <div className="flex items-start mb-5">
         <div className="flex items-center h-5">
@@ -80,7 +80,7 @@ function Register() {
             type="checkbox"
             value={form.acceptNotifications ? "on" : "off"}
             onChange={handleChangeCheckbox}
-            className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+            className="w-4 h-4 border border-gray-300 rounded-sm bg-gray-50 focus:ring-3 focus:ring-blue-300"
           />
         </div>
        
