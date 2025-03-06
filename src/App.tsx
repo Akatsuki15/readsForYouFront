@@ -6,6 +6,8 @@ import Login from './pages/Login';
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
+import BookList from './pages/BookList';
+import BookForm from './pages/BookForm';
 
 function App() {
   return (
@@ -19,6 +21,9 @@ function App() {
               <Route path="" element={<Home />} />
               <Route path="/login" element={<Login />} />
               <Route path='/register' element={<Register />} />
+              <Route path='/books' element={<BookList />} />
+              <Route path="/books/new" element={<BookForm />} />
+              <Route path="/books/edit/:id" element={<BookForm />} />
               <Route path='/profile' element={<Profile />} />
             </Routes>
           </div>

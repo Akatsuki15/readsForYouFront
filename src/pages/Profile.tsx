@@ -17,8 +17,8 @@ function Profile() {
     }, []);
   
     return (
-      <div className="max-w-md mx-auto bg-white dark:bg-gray-800 shadow-md rounded-lg p-6">
-        <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
+      <div className="max-w-md mx-auto bg-white">
+        <h2 className="text-2xl font-bold text-gray-900">
           Perfil de Usuario
         </h2>
         {error && <p className="text-red-500">{error}</p>}
@@ -28,16 +28,16 @@ function Profile() {
           user && (
             <div className="space-y-4">
               <div>
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Nombre</p>
-                <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.name}</p>
+                <p className="text-sm font-medium text-gray-500">Nombre</p>
+                <p className="text-lg font-semibold text-gray-900">{user.name}</p>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Apellidos</p>
-                <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.surname}</p>
+                <p className="text-sm font-medium text-gray-500">Apellidos</p>
+                <p className="text-lg font-semibold text-gray-900">{user.surname}</p>
               </div>
               <div>
-                <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Correo Electrónico</p>
-                <p className="text-lg font-semibold text-gray-900 dark:text-white">{user.email}</p>
+                <p className="text-sm font-medium text-gray-500">Correo Electrónico</p>
+                <p className="text-lg font-semibold text-gray-900">{user.email}</p>
               </div>
             </div>
           )
