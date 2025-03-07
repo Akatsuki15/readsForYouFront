@@ -17,7 +17,7 @@ function Profile() {
     }, []);
   
     return (
-      <div className="max-w-md mx-auto bg-white">
+      <div className="max-w-md mx-auto mt-10">
         <h2 className="text-2xl font-bold text-gray-900">
           Perfil de Usuario
         </h2>

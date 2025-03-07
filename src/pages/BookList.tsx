@@ -91,19 +91,19 @@ function BookList() {
           <div key={book.id} className="">
             <div
     
-              className="block max-w-sm p-6 bg-white border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700"
+              className="block max-w-sm p-6 bg-gradient-to-r from-violet-200 to-violet-400 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
             >
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
                 {book.title}
               </h5>
-              <p className="font-normal text-gray-700 dark:text-gray-400">
+              <p className="font-normal text-gray-500">
                 {book.opinion}
               </p>
               <div className="flex items-center justify-center gap-4 mt-4">
   
-              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" to={`/books/${book.id}`}>Ver</Link>
-              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" to={`/books/edit/${book.id}`}>Editar</Link>
-              <button className="px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800" onClick={() => handleDelete(book.id)}>Borrar</button>
+              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" to={`/books/${book.id}`}>Ver</Link>
+              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" to={`/books/edit/${book.id}`}>Editar</Link>
+              <button className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={() => handleDelete(book.id)}>Borrar</button>
               </div>
             </div>
           </div>

@@ -24,24 +24,24 @@ export class GenreService {
         })
     }
 
-    static async create(category: Partial<Genre>) {
+    static async create(genre: Partial<Genre>) {
         return await fetchAPI(API_URL_BASE+'/genres', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(category),
+            body: JSON.stringify(genre),
             credentials: 'include'
         })
     }
 
-    static async update(id:number, category: Partial<Genre>) {
+    static async update(id:number, genre: Partial<Genre>) {
         return await fetchAPI(API_URL_BASE+'/genres/'+id, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(category),
+            body: JSON.stringify(genre),
             credentials: 'include'
         })
     }
