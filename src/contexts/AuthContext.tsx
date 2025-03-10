@@ -14,7 +14,13 @@ interface AuthContextType{
     login: (email:string, password:string) => void
     logout: () => void
 }
-const AuthContext = createContext<AuthContextType | null>(null)
+
+const AuthContext = createContext<AuthContextType | null>({ // Es mejor proporcionar un objeto vacío con funciones noop para evitar verificaciones innecesarias en useAuth()
+    user: null,
+    isAuthenticated: false,
+    login: async () => {},
+    logout: async () => {},
+})
 
 export function AuthProvider({children}:{children: React.ReactNode}){
     const [user, setUser] = useState<UserPayload | null>(null)
@@ -58,7 +64,7 @@ export function AuthProvider({children}:{children: React.ReactNode}){
     }
 
     return <AuthContext.Provider value={  
-            {user, login, logout, isAuthenticated: !!user }
+            {user, login, logout, isAuthenticated: !!user}
         }>
             {children}
         </AuthContext.Provider>

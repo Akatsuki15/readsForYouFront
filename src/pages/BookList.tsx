@@ -1,7 +1,6 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import Book from "../models/Book";
 import { Link, useSearchParams } from "react-router-dom";
-import toast from "react-hot-toast";
 import { BookService } from "../services/bookService";
 
 function BookList() {
@@ -22,19 +21,6 @@ function BookList() {
     const handleSearchChange = (e: ChangeEvent<HTMLInputElement>) => {
       const newTitle = e.target.value;
       setQueryParams(newTitle ? { title: newTitle } : {});
-    };
-  
-    const handleDelete = async (id: number) => {
-      if (!window.confirm("¿Estás seguro que quieres borrar esta opinion?"))
-        return;
-  
-      try {
-        await BookService.delete(id);
-        setBooks(books?.filter((book) => book.id !== id));
-        toast.success("Opinion borrada correctamente!");
-      } catch (error) {
-        setError(error instanceof Error ? error.message : "Error desconocido");
-      }
     };
   
     return (
@@ -86,11 +72,9 @@ function BookList() {
         {error && <p>{error}</p>}
         {books?.length === 0 && <p>No hay opiniones disponibles</p>}
         <div className="flex flex-wrap flex-row gap-4 items-center justify-center">
-  
         {books?.map((book) => (
-          <div key={book.id} className="">
+          <div key={book.id}>
             <div
-    
               className="block max-w-sm p-6 bg-gradient-to-r from-violet-200 to-violet-400 border border-gray-200 rounded-lg shadow-sm hover:bg-gray-100"
             >
               <h5 className="mb-2 text-2xl font-bold tracking-tight text-black">
@@ -99,16 +83,13 @@ function BookList() {
               <p className="font-normal text-gray-500">
                 {book.opinion}
               </p>
-              <div className="flex items-center justify-center gap-4 mt-4">
-  
-              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" to={`/books/${book.id}`}>Ver</Link>
-              <Link className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" to={`/books/edit/${book.id}`}>Editar</Link>
-              <button className="px-3 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" onClick={() => handleDelete(book.id)}>Borrar</button>
+              <div className="flex items-center justify-end gap-4 mt-4">
+                <Link className="px-8 py-2 text-sm font-medium text-center text-white bg-cyan-500 rounded-lg hover:bg-cyan-700 focus:ring-4 focus:outline-none focus:ring-blue-300" to={`/books/${book.id}`}>Ver</Link>
               </div>
             </div>
           </div>
         ))}
-              </div>
+    </div>
   
       </div>
     );
